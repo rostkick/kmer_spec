@@ -34,5 +34,5 @@ python3 kmer_spectr.py -i test_kmer.fastq -k 15 -q 20 -w True
 ```
 ![alt text](https://github.com/rostkick/kmer_spec/blob/master/test_kmer.fastq_k15-q20.png)
 ### Noise cut-off and genome size calculating.
-Finding minimum in small distance between 2 first picks.
+Finding minimum in small distance between 2 first picks. The cut-off is calculated automatically.
 Then the approximated size of the genome will be calculating with depending of the cut-off.
