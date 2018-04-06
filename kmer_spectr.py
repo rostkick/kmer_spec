@@ -11,7 +11,7 @@ from collections import defaultdict
 from scipy.signal import argrelextrema
 
 
-class Kmer_spec:
+class KmerSpec:
     '''
     The class created for cutting read's-sequences into k-mers of a certain length
     and their spectrum visualisating.
@@ -168,23 +168,32 @@ if __name__ == '__main__':
     parser.add_argument('-ymin', '--borderymin', help='set graphic borders (ymin)', default='', type=str)
     parser.add_argument('-ymax', '--borderymax', help='set graphic borders (ymax)', default='', type=str)
     parser.add_argument('-ax', '--axis', help='auto axis setting', default='auto', type=str)
+    parser.add_argument('-gs', '--get_spectr', help='write .tsv file with spectrum for visualize somewhere else',
+                        default=False, type=str2bool)
 
     args = parser.parse_args()
     input, kmer, quality = args.input, args.kmer, args.quality
     borderxmin, borderxmax, borderymin, borderymax = args.borderymin, args.borderxmax, args.borderymin, args.borderymax
-    wr, axis = args.write, args.axis
+    wr, axis, spec = args.write, args.axis, args.get_spectr
 
-    # ##### for debagging ######
-    # input, kmer, quality = 'test', 15, 20
-    # borderxmin, borderxmax, borderymin, borderymax = '', '', '', ''
-    # wr, axis = False, 'auto'
+    #### for debagging ######
+    input, kmer, quality = 'SRR292678sub_S1_L001_R1_001.fastq', 20, 24
+    borderxmin, borderxmax, borderymin, borderymax = '', '', '', ''
+    wr, axis, sp = False, 'auto', True
 
     os.getcwd()
-    A = Kmer_spec()
+    A = KmerSpec()
     A.fastq_parse(input, kmer, quality)
     A.spectum_building()
-    A.vis_spectr(xmin=borderxmin,
+    A.kmer_spectr
+    if wr == True:
+        A.vis_spectr(xmin=borderxmin,
                  xmax=borderxmax,
                  ymin=borderymin,
                  ymax=borderymax,
                  w=wr, ax=axis)
+
+    if spec == True:
+        for k, v in A.kmer_spectr.items():
+            with open('spectr.txt', 'a') as w:
+                w.write(f'{k}\t{v}\n')
