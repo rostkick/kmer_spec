@@ -22,6 +22,7 @@ If you want to save **only one** file (for example without saving small_test.fas
   ```-ymin, --borderymin <int>``` Set graphic borders (ymin)  
   ```-ymax, --borderymax <int>``` Set graphic borders (ymax)  
   ```-ax, --axis <str>``` If you want use auto borders -- set 'auto', else -- don't use it.  
+  ```-gs, --get_spectr <bool>``` Write .tsv file with spectrum for visualize somewhere else'
 ### How to use it
 ```
 python3 kmer_spectr.py -i small_test.fastq -k 15 -q 20 -w True
@@ -33,6 +34,11 @@ More life example
 python3 kmer_spectr.py -i test_kmer.fastq -k 15 -q 20 -w True
 ```
 ![alt text](https://github.com/rostkick/kmer_spec/blob/master/test_kmer.fastq_k15-q20.png)
+
+If you want just get k-mer spectrum withou visualization use it:
+```
+python3 kmer_spect -i test_kmer.fastq -k 31 -q 20 --get_spectr True -w False
+```
 ### Noise cut-off and genome size calculating.
 Finding minimum in small distance between 2 first picks. The cut-off is calculated automatically.
 Then the approximated size of the genome will be calculating with depending of the cut-off.
