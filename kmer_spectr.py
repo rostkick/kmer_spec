@@ -177,9 +177,9 @@ if __name__ == '__main__':
     wr, axis, spec = args.write, args.axis, args.get_spectr
 
     #### for debagging ######
-    input, kmer, quality = 'SRR292678sub_S1_L001_R1_001.fastq', 20, 24
-    borderxmin, borderxmax, borderymin, borderymax = '', '', '', ''
-    wr, axis, sp = False, 'auto', True
+    # input, kmer, quality = 'SRR292678sub_S1_L001_R1_001.fastq', 20, 24
+    # borderxmin, borderxmax, borderymin, borderymax = '', '', '', ''
+    # wr, axis, sp = False, 'auto', True
 
     os.getcwd()
     A = KmerSpec()
