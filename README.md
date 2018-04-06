@@ -35,7 +35,7 @@ python3 kmer_spectr.py -i test_kmer.fastq -k 15 -q 20 -w True
 ```
 ![alt text](https://github.com/rostkick/kmer_spec/blob/master/test_kmer.fastq_k15-q20.png)
 
-If you want just get k-mer spectrum withou visualization use it:
+If you want just get k-mer spectrum without visualization use it:
 ```
 python3 kmer_spect -i test_kmer.fastq -k 31 -q 20 --get_spectr True -w False
 ```
