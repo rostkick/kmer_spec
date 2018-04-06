@@ -37,7 +37,7 @@ python3 kmer_spectr.py -i test_kmer.fastq -k 15 -q 20 -w True
 
 If you want just get k-mer spectrum without visualization use it:
 ```
-python3 kmer_spect -i test_kmer.fastq -k 31 -q 20 --get_spectr True -w False
+python3 kmer_spectr -i test_kmer.fastq -k 31 -q 20 --get_spectr True -w False
 ```
 ### Noise cut-off and genome size calculating.
 Finding minimum in small distance between 2 first picks. The cut-off is calculated automatically.
